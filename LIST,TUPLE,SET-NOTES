@@ -1,0 +1,687 @@
+List Data Structure :
+====================
+	Group of elements as a single entity called as List 
+	Sequences of multiple items separated by comma and enclosed with squre brackets.
+	[] 
+
+	variable = [item1,item2,item3,......,itme n]
+	list may contain elements of different types 
+	create a empty list 
+	We can create a list using List() 
+>>> eid = [101,102,103,104,105]
+>>> type(eid)
+<class 'list'>
+>>> eid
+[101, 102, 103, 104, 105]
+>>> print(eid)
+[101, 102, 103, 104, 105]
+>>> details = [101,"Ravi",34000.50,"Hyd",True]
+>>> details
+[101, 'Ravi', 34000.5, 'Hyd', True]
+>>> el = []
+>>> type(el)
+<class 'list'>
+>>> el
+[]
+>>> l1 = list()
+>>> type(l1)
+<class 'list'>
+>>> l2 = list([101,102,103,104])
+>>> type(l2)
+<class 'list'>
+>>> l3 = list(["@@","**",",,,,"])
+>>> type(l3)
+<class 'list'>
+>>> l4 = list("1234567")
+>>> type(l4)
+<class 'list'>
+
+list may contain again lists ==> nested list 
+
+Create list using range() function :
+=====================================
+>>> l1 = list(range(5))
+>>> l1
+[0, 1, 2, 3, 4]
+>>> l2 = list(range(1,101))
+>>> l2
+
+list functions:
+===============
+len()  ==> returnsthe number of elements in a sequence
+sum() ==> returns the sum of elements in the sequence 
+max() ==> returns the element with greatest value in the sequence
+min() ==> returns the element with lowese value in the sequence
+
+>>> num = [1,12,34,56,23,1,12,34,89,100]
+>>> num
+[1, 12, 34, 56, 23, 1, 12, 34, 89, 100]
+>>> len(num)
+10
+>>> sum(num)
+362
+>>> max(num)
+100
+>>> min(num)
+1
+
+Index operator:
+===============
+list elements accessed by index wise ==> zero 
+
+>>> num
+[1, 12, 34, 56, 23, 1, 12, 34, 89, 100]
+>>> num[0]
+1
+>>> num[10]
+Traceback (most recent call last):
+  File "<pyshell#34>", line 1, in <module>
+    num[10]
+IndexError: list index out of range
+>>> num[9]
+100
+>>> num[5]
+1
+>>> len(num)-1
+9
+>>> list[len(num)-1]
+Traceback (most recent call last):
+  File "<pyshell#38>", line 1, in <module>
+    list[len(num)-1]
+TypeError: 'type' object is not subscriptable
+>>> num[len(num)-1]
+100
+>>> num[-1]
+100
+>>> num[-2]
+89
+>>> num[-len(num)]
+1
+>>> num
+[1, 12, 34, 56, 23, 1, 12, 34, 89, 100]
+
+
+Lists are mutable :
+==================
+
+>>> list1 = ["str","list","int","float"]
+>>> id(list1)
+16049696
+>>> list1[1] = "tuple"
+>>> list1
+['str', 'tuple', 'int', 'float']
+>>> id(list1)
+16049696
+
+even after modifying the list the id of the variable is remains same.
+
+Iterating through elements in list:
+===================================
+>>> marks = [56,45,78,96,76]
+>>> for m in marks:
+	print(m)
+
+	
+56
+45
+78
+96
+76
+
+List slicing : 
+==============
+slice operator ==> : 
+list[start:end]  ==> end means ==> picks the elements end-1 
+returns the slice of the list starting from index 0 to end-1
+
+>>> num
+[1, 12, 34, 56, 23, 1, 12, 34, 89, 100]
+>>> num[0:6]
+[1, 12, 34, 56, 23, 1]
+>>> num[5:8]
+[1, 12, 34]
+>>> num[:]
+[1, 12, 34, 56, 23, 1, 12, 34, 89, 100]
+>>> num[:4]
+[1, 12, 34, 56]
+>>> num[4:]
+[23, 1, 12, 34, 89, 100]
+>>> num[3:4:2]
+[56]
+>>> num[3:8:2]
+[56, 1, 34]
+
+Membership operators in and not in :
+===================================
+check whether those elements present in the sequence or not 
+
+>>> names = ["ravi","rakesh","hari","manish","rajesh"]
+>>> 'ravi' in names
+True
+>>> 'ganesh' in names
+False
+>>> 'ganesh' not in names
+True
+
+
+
+s = input("Enter some list : ")
+i = 0
+for x in s :
+    print (" The character present at positive index{} and at Negative Index {} is {} ".format(i,i-len(s),x))
+    i=i+1
+List Concatenation : 
+====================
+	Add 2 or more lists  by using the operator ==> + 
+
+>>> names
+['ravi', 'rakesh', 'hari', 'manish', 'rajesh']
+>>> num
+[1, 12, 34, 56, 23, 1, 12, 34, 89, 100]
+>>> names+num
+['ravi', 'rakesh', 'hari', 'manish', 'rajesh', 1, 12, 34, 56, 23, 1, 12, 34, 89, 100]
+>>> new = names+num
+>>> new
+['ravi', 'rakesh', 'hari', 'manish', 'rajesh', 1, 12, 34, 56, 23, 1, 12, 34, 89, 100]
+
+Repetition operator : 
+======================
+	* operator ==> replicated and joins together 
+>>> names*2
+['ravi', 'rakesh', 'hari', 'manish', 'rajesh', 'ravi', 'rakesh', 'hari', 'manish', 'rajesh']
+
+Comparing 2 lists :
+==================
+list 1 ==> 0 th element with lis2 ==>0th element 
+
+>>> n1 = [1,2,3]
+>>> n2 = [1,2,10]
+>>> n1>n2
+False
+>>> word = ["pow","exp"]
+>>> word1 = ["power","exponential"]
+>>> word <word1
+True
+>>> ord('p')
+112
+
+List Methods : 
+==============
+appends(item) ==> adds an item to the end of the list
+insert(index,item) ==> it inserts the item at the index position 
+index(item) ==> returns the first occurances of item 
+remove(item) ==> removes the first occurences of specified item.
+count(item) ==> number of times that item present in the list
+clear() ==> removes all the elements from the list
+sort() ==> sorts the elements from the list
+reverse() ==> reverse order to get the elements of the list
+pop(index) ==> it removes the item from that index and returns that element 
+extend(sequence) ==> appends all the elements from another list to end of the existing list
+
+>>> l1 = [1,2,3,4,5,6]
+>>> id(l1)
+15977368
+>>> l1.append(10)
+>>> l1
+[1, 2, 3, 4, 5, 6, 10]
+>>> id(l1)
+15977368
+>>> n = []
+>>> n.append[10]
+Traceback (most recent call last):
+  File "<pyshell#86>", line 1, in <module>
+    n.append[10]
+TypeError: 'builtin_function_or_method' object is not subscriptable
+>>> n
+[]
+>>> n.append(10)
+>>> n.append(11)
+>>> n.append(12)
+>>> n
+[10, 11, 12]
+>>> n
+[10, 11, 12]
+>>> n.insert(2,34)
+>>> n
+[10, 11, 34, 12]
+>>> n.insert(4,44)
+>>> n
+[10, 11, 34, 12, 44]
+>>> num
+[1, 12, 34, 56, 23, 1, 12, 34, 89, 100]
+>>> num.index(1)
+0
+>>> num.index(23)
+4
+>>> num.index(102)
+Traceback (most recent call last):
+  File "<pyshell#100>", line 1, in <module>
+    num.index(102)
+ValueError: 102 is not in list
+>>> num
+[1, 12, 34, 56, 23, 1, 12, 34, 89, 100]
+>>> num.remove(1)
+>>> num
+[12, 34, 56, 23, 1, 12, 34, 89, 100]
+>>> num.remove(1)
+>>> num
+[12, 34, 56, 23, 12, 34, 89, 100]
+>>> num.count(12)
+2
+>>> num.clear()
+>>> num
+[]
+>>> n
+[10, 11, 34, 12, 44]
+>>> n.sort()
+>>> n
+[10, 11, 12, 34, 44]
+>>> n.sort(reversed.False)
+SyntaxError: invalid syntax
+>>> n.sort(reversed)
+Traceback (most recent call last):
+  File "<pyshell#113>", line 1, in <module>
+    n.sort(reversed)
+TypeError: sort() takes no positional arguments
+>>> n.sort(reverse.True)
+SyntaxError: invalid syntax
+>>> n.reverse()
+>>> n
+[44, 34, 12, 11, 10]
+>>> n
+[44, 34, 12, 11, 10]
+>>> n.extend([100,120,130])
+>>> n
+[44, 34, 12, 11, 10, 100, 120, 130]
+>>> n
+[44, 34, 12, 11, 10, 100, 120, 130]
+>>> n.pop()
+130
+>>> n
+[44, 34, 12, 11, 10, 100, 120]
+>>> n.pop(4)
+10
+>>> num
+[]
+>>> del num
+>>> num
+Traceback (most recent call last):
+  File "<pyshell#126>", line 1, in <module>
+    num
+NameError: name 'num' is not defined
+>>> 
+
+Tuple Data Structure: 
+=====================
+	Tuple is exactly same as list ==> Immutable 
+		List ==> Mutable 
+	==> Insertion order is preserved
+	==> Duplicates Allowed 
+	==> Mixed data type elements
+	==> Index wise accessed ==> zero ==> positive and negative Index 
+	==> [] ==> list ==> () ==> Tuple 
+			    () ==> are not mandatory ==> must be separated by comma
+
+>>> t = 10,20,30,40
+>>> type(t)
+<class 'tuple'>
+>>> t = ()
+>>> type(t)
+<class 'tuple'>
+>>> eid = [10,20,30,40]
+>>> type(eid)
+<class 'list'>
+>>> t = (10,20,30,40)
+>>> type(t)
+<class 'tuple'>
+>>> n = 10
+>>> type(n)
+<class 'int'>
+>>> n = 10,
+>>> type(n)
+<class 'tuple'>
+
+How to create Tuple:
+====================
+	1) t =() 
+	2) t = (10,)
+	3) t = 10,20,30
+	4) By using the tuple() function 
+>>> eid
+[10, 20, 30, 40]
+>>> e = tuple(eid)
+>>> type(e)
+<class 'tuple'>
+>>> t = tuple(range(10,20,2))
+>>> t
+(10, 12, 14, 16, 18)
+
+Accessing the Tuple elements:
+=============================
+1) By using Index : 
+==================
+>>> t
+(10, 12, 14, 16, 18)
+>>> t[0]
+10
+>>> t[3]
+16
+>>> t[10]
+Traceback (most recent call last):
+  File "<pyshell#20>", line 1, in <module>
+    t[10]
+IndexError: tuple index out of range
+
+2) By using slice operator (:) :
+================================
+>>> t
+(10, 12, 14, 16, 18)
+>>> t[2:5]
+(14, 16, 18)
+>>> t[1:]
+(12, 14, 16, 18)
+>>> eid
+[10, 20, 30, 40]
+>>> eid[0] = 60
+>>> eid
+[60, 20, 30, 40]
+>>> t
+(10, 12, 14, 16, 18)
+>>> t[0]=60
+Traceback (most recent call last):
+  File "<pyshell#28>", line 1, in <module>
+    t[0]=60
+TypeError: 'tuple' object does not support item assignment
+
+Matematical operators for tuple:
+=================================
+	 use + operator to conactenate two tuples 
+	 use * operator for repetitive of tuple elements
+
+>>> t
+(10, 12, 14, 16, 18)
+>>> t1 = 100,120,130,140
+>>> t+t1
+(10, 12, 14, 16, 18, 100, 120, 130, 140)
+>>> t
+(10, 12, 14, 16, 18)
+>>> t*3
+(10, 12, 14, 16, 18, 10, 12, 14, 16, 18, 10, 12, 14, 
+
+Important functions of tuple:
+============================
+	1) len() ==> returns the number of elements of tuple 
+	2) count() ==> returns the number of occurences of given element in the tuple
+	3) index() ==> returns the index of first occurences of the given element 
+	4) sorted() ==> to sort the elements based on default natural sorting order
+	5) min() , max() ==> returns the minimum and max value from the tuple 
+	6) cmp() ==> compares the elements from the both tuples  (Python 2)
+			If both tuples are equal then returns 0
+			if first tuple is greater than second tuple returns -1
+			if first tuple is less than second tuple returns +1
+	
+>>> t
+(10, 12, 14, 16, 18)
+>>> len(t)
+5
+>>> t = 10,10,20,30,40,20,50,60,40
+>>> t
+(10, 10, 20, 30, 40, 20, 50, 60, 40)
+>>> t.count(20)
+2
+>>> t.index(20)
+2
+>>> t1 = sorted(t)
+>>> t1
+[10, 10, 20, 20, 30, 40, 40, 50, 60]
+>>> t1 = sorted(t,reverse=True)
+>>> t1
+[60, 50, 40, 40, 30, 20, 20, 10, 10]
+>>> min(t1)
+10
+>>> max(t1)
+60
+>>> t
+(10, 10, 20, 30, 40, 20, 50, 60, 40)
+>>> t1
+[60, 50, 40, 40, 30, 20, 20, 10, 10]
+>>> cmp(t,t1)
+Traceback (most recent call last):
+  File "<pyshell#50>", line 1, in <module>
+    cmp(t,t1)
+NameError: name 'cmp' is not defined
+
+Tuple Packing and Unpacking :
+============================
+create a tuple by packing group of variables 
+
+>>> a = 10
+>>> b = 20
+>>> c = 30
+>>> d = 40
+>>> t = a,b,c,d
+>>> type(t)
+<class 'tuple'>
+>>> t
+(10, 20, 30, 40)
+>>> t
+(10, 20, 30, 40)
+>>> a,b,c,d = t
+>>> a
+10
+>>> b
+20
+>>> c
+30
+>>> d
+40
+
+Tuple comprehension:
+=====================
+t = (x**2 for x in range(1,6))
+
+>>> t = (x**2 for x in range(1,6))
+>>> t
+<generator object <genexpr> at 0x04247530>
+>>> type(t)
+<class 'generator'>
+>>> for x in t : print(x)
+
+1
+4
+9
+16
+25
+
+Write a program to take the tuple from the keyboard and print the sum and avg
+=============================================================================
+Set Data Structure : 
+====================
+	represent group of unique values as single entity 
+	Duplicates are not allowed 
+	Insertion order is not preserved ==> we can not sort the data 
+	Indexing and slicing are not allowed 
+	Heterogeneous elements are allowed 
+	set objects are mutable
+	set objects ==> {} and comma seperation 
+	Mathematical operations ===> union,intersection,difference etc 
+
+create set objects : 
+===================
+>>> s = {10,20,30,40}
+>>> type(s)
+<class 'set'>
+>>> # using set function ==> set()
+>>> l = [10,20,30,40,10,30,20,50,60]
+>>> type(l)
+<class 'list'>
+>>> s = set(l)
+>>> s
+{40, 10, 50, 20, 60, 30}
+>>> type(s)
+<class 'set'>
+>>> # using range type and with set()
+>>> s = set(range(5))
+>>> s
+{0, 1, 2, 3, 4}
+>>> l =[]
+>>> t = ()
+>>> type(l)
+<class 'list'>
+>>> type(t)
+<class 'tuple'>
+>>> s = {}
+>>> type(s)
+<class 'dict'>
+>>> s = set()
+>>> type(s)
+<class 'set'>
+
+Important functions of set:
+===========================
+1) add(x) : 
+	adds the x item to set 
+2) update(x,y,z):
+	to add multiple items to set
+	list,range etc 
+>>> s ={10,20,30,40}
+>>> s.add(50)
+>>> s
+{40, 10, 50, 20, 30}
+>>> s
+{40, 10, 50, 20, 30}
+>>> l = [50,60,70]
+>>> s.update(l,range(5))
+>>> s
+{0, 1, 2, 3, 4, 70, 40, 10, 50, 20, 60, 30}
+
+add ==> to add only one item to set  : it takes only one argument
+update ==> to add multiple items to set : iterable objects 
+
+3) copy():
+==========cloned objects ==> return the same copy of the set 
+
+4) pop() :
+==========
+	To remove the element from the set but it returns that element 
+	removes the random element 
+>>> s1 = s.copy()
+>>> s1
+{40, 10, 20, 30}
+>>> s.pop()
+40
+>>> s
+{10, 20, 30}	
+
+5) remove(x) :
+==============
+	removes the specified item from the set ==> KeyError will get if element
+	is not present.
+>>> s ={10,20,30,40}
+>>> s.remove(20)
+>>> s
+{40, 10, 30}
+>>> s.remove(50)
+Traceback (most recent call last):
+  File "<pyshell#46>", line 1, in <module>
+    s.remove(50)
+KeyError: 50
+
+6) discard(x):
+==============
+it removes the specified item from the set
+if the specified item not present in the set then it will throw any error
+
+>>> s.discard(50)
+>>> s
+{40, 10, 30}
+>>> s.discard(30)
+>>> s
+{40, 10}
+
+7) clear() :
+============
+	To remove all the elements from the set 
+
+>>> s
+{40, 10}
+>>> s.clear()
+>>> s
+set()
+
+Mathematical operations on Set:
+===============================
+
+1) union() : 
+============
+	To return all the elements from both sets
+	x.union(y)   or x|y 
+2) intersection():
+==================
+	Returns the elements present in both sets
+	x.intersection(y)  or x&y 
+3) difference() :
+===============
+	Returns the elements present in x not in y 
+	x.difference(y)   or x-y 
+
+>>> s = {10,20,30,40,50}
+>>> s1 = {30,40,50,60,70,80}
+>>> s.union(s1)
+{70, 40, 10, 80, 50, 20, 60, 30}
+>>> s.intersection(s1)
+{40, 50, 30}
+>>> s.difference(s1)
+{10, 20}
+
+4) symmetric_difference() :
+===========================
+	Returns the items present either in x or y but not in both 
+x.symmetric_difference   or x^y
+
+>>> s^s1
+{80, 20, 70, 10, 60}
+
+Membership operators ==> in   and not in 
+=========================================
+>>> s = set("python")
+>>> s
+{'n', 'y', 'p', 'o', 'h', 't'}
+>>> p in s
+Traceback (most recent call last):
+  File "<pyshell#62>", line 1, in <module>
+    p in s
+NameError: name 'p' is not defined
+>>> 'p' in s
+True
+>>> 'z' in s
+False
+>>> 'z'  not in s
+True
+>>> s
+{'n', 'y', 'p', 'o', 'h', 't'}
+>>> s1
+{70, 40, 80, 50, 60, 30}
+>>> s = {"python","language","easy"}
+>>> s
+{'python', 'language', 'easy'}
+>>> 40 in s1
+True
+Write a program to eliminate duplicates from the list:
+======================================================
+	 l = [10,20,30,10,20,40,50,20]
+	 s = set(l)
+	 print(s) 
+
+l = eval(input("Enter list of values: "))
+l1= []
+for x in l:
+    if x not in l1:
+        l1.append(x)
+print(l1)
+
+Write a program to print different vowels present in the given word:
+====================================================================
+ a,e,i,o,u ==> vowels 
+
+ Input data : python ==>  output : vowels  present in python  ==> o 
